@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Telegram web app";
+}
+
+<h2>@ViewData["Title"]</h2>
+<div id="user-info"></div>
+
+<script>
+        const tg = window.Telegram.WebApp;
+        tg.expand();
+
+        const user = tg.initDataUnsafe.user;
+
+        document.getElementById("user-info").innerHTML = `
+            <p><strong>First name:</strong> ${user?.first_name}</p>
+            <p><strong>Username:</strong> ${user?.username}</p>
+            <p><strong>User ID:</strong> ${user?.id}</p>
+        `;
+</script>
